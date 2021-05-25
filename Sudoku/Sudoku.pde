@@ -14,6 +14,7 @@ void setup() {
     line(90, 90 + 60 * i, 630, 90 + 60 * i);
   }
   
+  //create arrays of Button and Square
   
 }
 
