@@ -1,3 +1,4 @@
+Button[] toolbar;
 void setup() {
   background(255);
   size(1280, 720);
@@ -15,8 +16,16 @@ void setup() {
   }
   
   //create arrays of Button and Square
-  
+  toolbar = new Button[11];
+  for (int i = 0; i < 11; i++){
+    toolbar[i] = new Button(i);
+  }
 }
 
 void draw() {
+  for (Button b : toolbar)
+    b.display();
+}
+
+void mousePressed(){
 }
