@@ -8,5 +8,8 @@ A recreation of a familiar game: sudoku. The program will encompass a processing
 
 Doc Link: https://docs.google.com/document/d/1Q6Ud4WxZcsYQjgZEUR0ofl3CXGjaAfIF4SkNG4nrfZE/edit?usp=sharing 
 
-5/24/2021
+5/24/2021 CLASS ~ 
 Shyne and Annabel: We created a discussion and talked about how to start and organize the ideas on our document. We also started a file with the three necessary tabs (Sudoku, Button, and Square) that currently encompasses just the size and background.
+
+5/25/2021 HOME ~
+Shyne: I was able to get the grid lines set up and added the variables and constructors to the Button and Square class.
