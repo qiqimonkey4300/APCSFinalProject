@@ -12,6 +12,6 @@ Doc Link: https://docs.google.com/document/d/1Q6Ud4WxZcsYQjgZEUR0ofl3CXGjaAfIF4S
 Shyne and Annabel: We created a discussion and talked about how to start and organize the ideas on our document. We also started a file with the three necessary tabs (Sudoku, Button, and Square) that currently encompasses just the size and background.
 
 5/25/2021 HOME ~
-Shyne: I was able to get the grid lines set up and added the variables and constructors to the Button and Square class.
 
+Shyne: I was able to get the grid lines set up and added the variables and constructors to the Button and Square class.
 Annabel: I printed out the toolbar(numbers 1-9, help, and erase) from the Button class.
