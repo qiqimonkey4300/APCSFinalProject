@@ -3,7 +3,7 @@ Square[][] grid;
 void setup() {
   background(255);
   size(1280, 720);
-  
+
   //grid
   stroke(0);
   for (int i = 0; i < 10; i++) {
@@ -15,13 +15,13 @@ void setup() {
     line(90 + 60 * i, 90, 90 + 60 * i, 630);
     line(90, 90 + 60 * i, 630, 90 + 60 * i);
   }
-  
+
   //create array of Button
   tools = new Button[11];
-  for (int i = 0; i < 11; i++){
+  for (int i = 0; i < 11; i++) {
     tools[i] = new Button(i);
   }
-  
+
   //create array of Square
   grid = new Square[9][9];
   for (int i = 0; i < 9; i++) {
@@ -36,5 +36,12 @@ void draw() {
     b.display();
 }
 
-void mousePressed(){
+void mousePressed() {
+  if (mouseButton == LEFT) {
+    for (int i = 0; i < 9; i++) {
+      for (Square s : grid[i]) {
+        s.click();
+      }
+    }
+  }
 }

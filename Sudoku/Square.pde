@@ -14,11 +14,11 @@ public class Square {
   }
 
   void click() {
-    if (mouseX < 90 + 60 * (row + 1)
-      && mouseX > 90 + 60 * row
-      && mouseY < 90 + 60 * (col + 1)
-      && mouseY > 90 + 60 * col) {
-        selected = true;
+    if (mouseY < 90 + 60 * (row + 1)
+      && mouseY > 90 + 60 * row
+      && mouseX < 90 + 60 * (col + 1)
+      && mouseX > 90 + 60 * col) {
+        selected = !selected;
       }
       //if (selected == true)System.out.println(row + ", " + col);
     }
