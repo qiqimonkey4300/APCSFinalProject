@@ -43,5 +43,8 @@ void mousePressed() {
         s.click();
       }
     }
+    for (Button b : tools){
+      b.click();
+    }
   }
 }

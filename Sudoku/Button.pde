@@ -30,8 +30,14 @@ public class Button {
     fill(0);
     text("E", 1067, 503);
     //help
-    if (value == 0 && selected)
-      text("Here's how you play", 95, 95);
+    if (value == 0 && selected){
+      //noStroke();
+      fill(255, 100);
+      
+      rect(89, 89, 550, 550);
+      fill(0);
+      text("Here's how you play", 120, 120);
+    }
    }
     
   }
