@@ -16,5 +16,5 @@ Shyne: I was able to get the grid lines set up and added the variables and const
 Annabel: I printed out the toolbar(numbers 1-9, help, and erase) from the Button class.
 
 05/26/2021 CLASS ~  
-Shyne: I added the basic accessing methods to Square and allowed for a changing of whether or not a Square was selected through the mouse.
-Annabel: I started on making the 'Help' button clickable and prompting the instructions popup to show.
+Shyne: I added the basic accessing methods to Square and allowed for a changing of whether or not a Square was selected through the mouse.  
+Annabel: I made the 'Help' button toggleable and prompts the instructions popup to show.  
