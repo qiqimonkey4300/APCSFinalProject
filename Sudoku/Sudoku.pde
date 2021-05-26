@@ -26,7 +26,7 @@ void setup() {
   grid = new Square[9][9];
   for (int i = 0; i < 9; i++) {
     for (int j = 0; j < 9; j++) {
-      grid[i][j] = new Square();
+      grid[i][j] = new Square(i, j);
     }
   }
 }
