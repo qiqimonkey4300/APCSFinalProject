@@ -29,6 +29,7 @@ public class Button {
     rect(1050, 465, 50, 50, 7);
     fill(0);
     text("E", 1067, 503);
+    //help
     if (value == 0 && selected)
       text("Here's how you play", 95, 95);
    }
@@ -37,7 +38,7 @@ public class Button {
   
   void click(){
     //help (0)
-    if (overHelp)
+    if (overHelp())
       selected = true;
    
   }
