@@ -8,5 +8,35 @@ public class Square {
     selected = false;
   }
   
+  void display() {
+    
+  }
   
+  void click() {
+    
+  }
+  
+  boolean isSelected() {
+    return selected;
+  }
+  
+  int getValue() {
+    return value;
+  }
+  
+  int getState() {
+    return state;
+  }
+  
+  int setValue(int newValue) {
+    int temp = value;
+    value = newValue;
+    return temp;
+  }
+  
+  int setState(int newState) {
+    int temp = state;
+    state = newState;
+    return temp;
+  }
 }
