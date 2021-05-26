@@ -29,14 +29,25 @@ public class Button {
     rect(1050, 465, 50, 50, 7);
     fill(0);
     text("E", 1067, 503);
+    if (value == 0 && selected)
+      text("Here's how you play", 95, 95);
    }
     
-
-      
   }
   
   void click(){
-    
+    //help (0)
+    if (overHelp)
+      selected = true;
+   
+  }
+  
+  boolean overHelp(){
+    if (mouseX >= 1050 && mouseX <= 1100 &&
+        mouseY >= 185 && mouseY < 185+50)
+      return true;
+    else
+      return false;
   }
   
   int getValue(){
@@ -46,6 +57,5 @@ public class Button {
   boolean isSelected(){
     return selected;
   }
-  
   
 }
