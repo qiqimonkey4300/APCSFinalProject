@@ -1,4 +1,5 @@
-Button[] toolbar;
+Button[] tools;
+Square[][] grid;
 void setup() {
   background(255);
   size(1280, 720);
@@ -15,15 +16,23 @@ void setup() {
     line(90, 90 + 60 * i, 630, 90 + 60 * i);
   }
   
-  //create arrays of Button and Square
-  toolbar = new Button[11];
+  //create array of Button
+  tools = new Button[11];
   for (int i = 0; i < 11; i++){
-    toolbar[i] = new Button(i);
+    tools[i] = new Button(i);
+  }
+  
+  //create array of Square
+  grid = new Square[9][9];
+  for (int i = 0; i < 9; i++) {
+    for (int j = 0; j < 9; j++) {
+      grid[i][j] = new Square();
+    }
   }
 }
 
 void draw() {
-  for (Button b : toolbar)
+  for (Button b : tools)
     b.display();
 }
 
