@@ -8,8 +8,8 @@ public class Button {
   }
   
   void display(){
-      stroke(0);
-      strokeWeight(2);
+    stroke(0);
+    strokeWeight(2);
     //1-9
     int yval = 95;
     for (int i = 1; i < 10; i++){
@@ -20,7 +20,7 @@ public class Button {
       text(i, 825, yval + 35);
       yval += 60;
       fill(255);
-    }
+    
     //help
     rect(1050, 185, 50, 50, 7);
     fill(0);
@@ -33,10 +33,13 @@ public class Button {
     //help
     if (value == 0 && selected){
       fill(255, 100);
-      rect(89, 89, 550, 550);
+      rect(89, 89, 540, 540);
       fill(0);
-      text("Here's how you play", 120, 120);
+      text("Here's how you play:", 95, 120);
+      textSize(20);
+      text(t, 95, 180);
     }
+   }
     
   }
   
@@ -55,5 +58,9 @@ public class Button {
   boolean isSelected(){
     return selected;
   }
+  //instructions text
+  String t = "Sudoku starts off with a puzzle grid in which some" 
+           + "\nnumbers already placed."
+           + "";
   
 }
