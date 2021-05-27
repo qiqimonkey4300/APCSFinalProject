@@ -33,15 +33,14 @@ void draw() {
     line(90 + 60 * i, 90, 90 + 60 * i, 630);
     line(90, 90 + 60 * i, 630, 90 + 60 * i);
   }
-
-  for (Button b : tools) {
-    b.display();
-  }
   
   for (Square[] a : grid) {
     for (Square s : a) {
       s.display();
     }
+  }
+  for (Button b : tools) {
+    b.display();
   }
 }
 

@@ -33,11 +33,12 @@ public class Button {
     //help
     if (value == 0 && selected){
       fill(255, 100);
-      rect(89, 89, 540, 540);
+      rect(89, 89, 542, 542);
       fill(0);
       text("Here's how you play:", 95, 120);
       textSize(20);
-      text(t, 95, 180);
+      //scroll all the way down
+      text(t, 95, 170);
     }
    }
     
@@ -58,9 +59,14 @@ public class Button {
   boolean isSelected(){
     return selected;
   }
+  
   //instructions text
   String t = "Sudoku starts off with a puzzle grid in which some" 
-           + "\nnumbers already placed."
-           + "";
+           + "\nnumbers already placed. A puzzle is complete when"
+           + "\neach number from 1 to 9 appears only once in each"
+           + "\nrow, column, and block.\n"
+           + "\nSelect a cell/square, then tap a number to fill in the"
+           + "\ncell. The same can be done to erase a square with the"
+           + "\nerase tool";
   
 }
