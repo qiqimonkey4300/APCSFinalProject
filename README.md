@@ -23,4 +23,4 @@ Annabel: I made the 'Help' button toggleable and prompts the instructions popup 
 
 05/26/2021 - 05/27/2021 HOME ~  
 Shyne: I was able to get the preset (not random) sudoku to show up in blue at the start.  
-Annabel:
+Annabel: Help button now works as intended, and instructions have been added to it.  
