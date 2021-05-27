@@ -18,3 +18,7 @@ Annabel: I printed out the toolbar(numbers 1-9, help, and erase) from the Button
 05/26/2021 CLASS ~  
 Shyne: I added the basic accessing methods to Square and allowed for a changing of whether or not a Square was selected through the mouse.  
 Annabel: I made the 'Help' button toggleable and prompts the instructions popup to show.  
+
+05/26/2021 - 05/27/2021 HOME ~  
+Shyne: I was able to get the preset (not random) sudoku to show up in blue at the start.
+Annabel:
