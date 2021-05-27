@@ -11,6 +11,12 @@ public class Square {
   }
 
   void display() {
+    strokeWeight(3);
+    if (state == 0) {
+      fill(#000EFF);
+      textSize(30);
+      text(value, 110 + col * 60, 130 + row * 60);
+    }
   }
 
   void click() {
@@ -18,14 +24,14 @@ public class Square {
       && mouseY > 90 + 60 * row
       && mouseX < 90 + 60 * (col + 1)
       && mouseX > 90 + 60 * col) {
-        selected = !selected;
-      }
-      //if (selected == true)System.out.println(row + ", " + col);
+      selected = !selected;
     }
+    //if (selected == true)System.out.println(row + ", " + col);
+  }
 
-    boolean isSelected() {
-      return selected;
-    }
+  boolean isSelected() {
+    return selected;
+  }
 
   int getValue() {
     return value;

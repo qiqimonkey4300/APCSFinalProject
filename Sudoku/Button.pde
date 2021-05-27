@@ -8,8 +8,8 @@ public class Button {
   }
   
   void display(){
-    stroke(0);
-    strokeWeight(2);
+      stroke(0);
+      strokeWeight(2);
     //1-9
     int yval = 95;
     for (int i = 1; i < 10; i++){
@@ -20,6 +20,7 @@ public class Button {
       text(i, 825, yval + 35);
       yval += 60;
       fill(255);
+    }
     //help
     rect(1050, 185, 50, 50, 7);
     fill(0);
@@ -36,7 +37,6 @@ public class Button {
       fill(0);
       text("Here's how you play", 120, 120);
     }
-   }
     
   }
   

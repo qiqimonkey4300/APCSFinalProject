@@ -16,6 +16,8 @@ void setup() {
       grid[i][j] = new Square(i, j);
     }
   }
+  
+  create();
 }
 
 void draw() {
