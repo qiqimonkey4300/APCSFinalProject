@@ -40,6 +40,12 @@ public class Square {
   int getState() {
     return state;
   }
+  
+  boolean setSelected(boolean newSelected) {
+    boolean temp = selected;
+    selected = newSelected;
+    return temp;
+  }
 
   int setValue(int newValue) {
     int temp = value;

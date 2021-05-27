@@ -16,7 +16,7 @@ void setup() {
       grid[i][j] = new Square(i, j);
     }
   }
-  
+
   create();
 }
 
@@ -33,7 +33,7 @@ void draw() {
     line(90 + 60 * i, 90, 90 + 60 * i, 630);
     line(90, 90 + 60 * i, 630, 90 + 60 * i);
   }
-  
+
   for (Square[] a : grid) {
     for (Square s : a) {
       s.display();
@@ -49,6 +49,13 @@ void mousePressed() {
     for (int i = 0; i < 9; i++) {
       for (Square s : grid[i]) {
         s.click();
+        if (s.isSelected()) {
+          for (Square[] a : grid) {
+            for (Square b : a) {
+              if (b != s) s.setSelected(false);
+            }
+          }
+        }
       }
     }
     for (Button b : tools) {
