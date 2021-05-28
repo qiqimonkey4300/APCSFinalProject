@@ -16,6 +16,18 @@ public class Square {
       fill(#000EFF);
       textSize(30);
       text(value, 110 + col * 60, 130 + row * 60);
+    } else if (state == 1) {
+      fill(0);
+      textSize(30);
+      text(value, 110 + col * 60, 130 + row * 60);
+    } else if (state == 2) {
+      fill(#FF0505);
+      textSize(30);
+      text(value, 110 + col * 60, 130 + row * 60);
+    } else if (state == 4) {
+      fill(#C20CF5);
+      textSize(30);
+      text(value, 110 + col * 60, 130 + row * 60);
     }
   }
 
