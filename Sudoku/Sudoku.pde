@@ -87,6 +87,20 @@ boolean check() {
               grid[i][j].setState(4);
             }
           }
+          
+          //column
+          if (b == j && a != i && grid[a][b].getValue() == grid[i][j].getValue()) {
+            if (grid[a][b].getState() != 0) {
+              grid[a][b].setState(2);
+            } else {
+              grid[a][b].setState(4);
+            }
+            if (grid[i][j].getState() != 0) {
+              grid[i][j].setState(2);
+            } else {
+              grid[i][j].setState(4);
+            }
+          }
         }
       }
     }
