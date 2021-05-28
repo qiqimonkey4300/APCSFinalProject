@@ -24,3 +24,7 @@ Annabel: I made the 'Help' button toggleable and prompts the instructions popup 
 05/26/2021 - 05/27/2021 HOME ~  
 Shyne: I was able to get the preset (not random) sudoku to show up in blue at the start. Also, exactly one grid will be selected at a time, save for at the very start.  
 Annabel: Help button now works as intended, and instructions have been added to it.  
+
+05/27/2021 CLASS ~  
+Shyne:
+Annabel: I added a color key in instructions, as well as assigned the number buttons 1-9 their correct value.
