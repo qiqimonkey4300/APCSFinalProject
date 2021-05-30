@@ -46,7 +46,7 @@ void draw() {
     b.display();
   }
 }
-
+/*
 void mousePressed() {
   if (mouseButton == LEFT) {
     for (int i = 0; i < 9; i++) {
@@ -63,10 +63,33 @@ void mousePressed() {
     }
     for (Button b : tools) {
       b.click();
-      if (b.isSelected()){
-        for (Button c : tools){
+      if (b.isSelected()) {
+        //setValue(b.getValue());
+        for (Button c : tools) {
           if (b != c){
             b.setSelected(false);
+          }
+        }
+      }
+    }
+  }*/
+  
+//trying to combine them
+
+void mousePressed() {
+  if (mouseButton == LEFT) {
+    for (Button button : tools) {
+      button.click();
+      if (button.isSelected()) {
+        for (int i = 0; i < 9; i++) {
+          for (Square s : grid[i]) {
+            s.click();
+            if (s.isSelected() && s.getState() != 0) {
+              if (button.getValue() != 0 && button.getValue() != 11){ //not help or erase
+                s.setValue(button.getValue());
+                s.setState(1);
+              }
+            }
           }
         }
       }
