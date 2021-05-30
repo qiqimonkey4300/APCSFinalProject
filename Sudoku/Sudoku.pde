@@ -201,7 +201,7 @@ void create() {
   grid[0][0].setValue(6);
   grid[0][1].setValue(8);
   grid[0][5].setValue(7);
-  grid[0][1].setValue(1);
+  grid[0][6].setValue(1);
   grid[1][1].setValue(2);
   grid[1][3].setValue(9);
   grid[1][4].setValue(1);
