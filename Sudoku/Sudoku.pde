@@ -81,12 +81,6 @@ void mousePressed() {
       button.click();
       if (button.isSelected()) {
 
-        /*for (Button c : tools) {
-         if (button != c){
-         button.setSelected(false);
-         }
-         }*/
-
         for (int i = 0; i < 9; i++) {
           for (Square s : grid[i]) {
             s.click();
@@ -107,7 +101,6 @@ void mousePressed() {
               }
             }
           }
-          //check();
         }
         for (Button c : tools) {
           if (button != c) {

@@ -31,7 +31,7 @@ public class Button {
         rect(89, 89, 542, 542);
         fill(0);
         text("Here's how you play:", 95, 120);
-        textSize(20);
+        textSize(18);
         //scroll all the way down
         text(t, 95, 170);
        }
@@ -83,12 +83,14 @@ public class Button {
   
   //instructions text
   String t = "Sudoku starts off with a puzzle grid in which some" 
-           + "\nnumbers already placed. A puzzle is complete when"
-           + "\neach number from 1 to 9 appears only once in each"
-           + "\nrow, column, and block.\n"
-           + "\nSelect a cell/square, then tap a number to fill in the"
-           + "\ncell. The same can be done to erase a square with the"
-           + "\nerase tool.\n"
+           + "\nnumbers already placed. A puzzle is complete when each"
+           + "\nnumber from 1 to 9 appears only once in each row,"
+           + "\ncolumn, and block.\n"
+           
+           + "\nSelect a number, then tap a square to fill it in."
+           + "\nChange the number being filled in by clicking a different #."
+           + "\nThe same can be done to erase a square with the erase tool.\n"
+           
            + "\nColor Codes:"
            + "\nBlue - preset/standard numbers"
            + "\nBlack - player filled"
