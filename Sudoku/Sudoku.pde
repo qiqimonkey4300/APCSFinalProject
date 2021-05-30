@@ -120,21 +120,24 @@ void mousePressed() {
 }
 
 boolean check() {
+  //change everything to original + player filled
+  
+  //check for duplicates
   for (int a = 0; a < 9; a++) {
     for (int b = 0; b < 9; b++) {
       //loop through the whole grid again, this time
       //specifically checking row/column/box
       for (int i = 0; i < 9; i++) {
         for (int j = 0; j < 9; j++) {
-          if (grid[a][b].getValue() != 0 && grid[i][j].getValue() != 0) {
+          if (grid[a][b].getValue() != 0 && grid[i][j].getValue() != 0) {            
             //row
             if (a == i && b != j && grid[a][b].getValue() == grid[i][j].getValue()) {
-              if (grid[a][b].getState() != 0) {
+              if (grid[a][b].getState() != 0 && grid[a][b].getState() != 4) {
                 grid[a][b].setState(2);
               } else {
                 grid[a][b].setState(4);
               }
-              if (grid[i][j].getState() != 0) {
+              if (grid[i][j].getState() != 0 && grid[i][j].getState() != 4) {
                 grid[i][j].setState(2);
               } else {
                 grid[i][j].setState(4);
@@ -143,17 +146,20 @@ boolean check() {
 
             //column
             if (b == j && a != i && grid[a][b].getValue() == grid[i][j].getValue()) {
-              if (grid[a][b].getState() != 0) {
+              if (grid[a][b].getState() != 0 && grid[a][b].getState() != 4) {
                 grid[a][b].setState(2);
               } else {
                 grid[a][b].setState(4);
               }
-              if (grid[i][j].getState() != 0) {
+              if (grid[i][j].getState() != 0 && grid[i][j].getState() != 4) {
                 grid[i][j].setState(2);
               } else {
                 grid[i][j].setState(4);
               }
             }
+            
+            //boxes
+            
           }
         }
       }
