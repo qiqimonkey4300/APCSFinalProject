@@ -130,7 +130,7 @@ boolean check() {
       }
     }
   }
-  
+
   //check for duplicates
   for (int a = 0; a < 9; a++) {
     for (int b = 0; b < 9; b++) {
@@ -166,14 +166,40 @@ boolean check() {
                 grid[i][j].setState(4);
               }
             }
-            
-            //boxes
-            
           }
         }
       }
     }
   }
+
+  //boxes
+  for (int a = 0; a < 9; a++) {
+    for (int b = 0; b < 9; b++) {
+      //
+      for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+          int r = a - a % 3;
+          int c = b - b % 3;
+          if (grid[r + i][c + j].getValue() != 0 
+            && grid[a][b].getValue() == grid[r + i][c + j].getValue() 
+            && r + i != a && c + j != b) {
+            if (grid[a][b].getState() != 0 && grid[a][b].getState() != 4) {
+              grid[a][b].setState(2);
+            } else {
+              grid[a][b].setState(4);
+            }
+            if (grid[r + i][c + j].getState() != 0 && grid[r + i][c + j].getState() != 4) {
+              grid[r + i][c + j].setState(2);
+            } else {
+              grid[r + i][c + j].setState(4);
+            }
+          }
+        }
+      }
+      //
+    }
+  }
+
   return true;
 }
 
