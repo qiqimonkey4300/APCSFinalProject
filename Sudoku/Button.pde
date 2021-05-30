@@ -25,14 +25,7 @@ public class Button {
       rect(1050, 185, 50, 50, 7);
       fill(0);
       text("?", 1070, 222);
-      
-      //erase
-      fill(255);
-      rect(1050, 465, 50, 50, 7);
-      fill(0);
-      text("E", 1067, 503);
-      
-      //help
+      //instructions
       if (value == 0 && selected){
         fill(255, 100);
         rect(89, 89, 542, 542);
@@ -42,12 +35,13 @@ public class Button {
         //scroll all the way down
         text(t, 95, 170);
        }
-       //1
-      
+       
+      //erase
+      fill(255);
+      rect(1050, 465, 50, 50, 7);
+      fill(0);
+      text("E", 1067, 503);
      }
-     /*if (value == 1 && selected){
-         println("1 was selected.");
-     }*/
     
   }
   
@@ -55,7 +49,10 @@ public class Button {
     //help (0)
     if (value == 0 && mouseX >= 1050 && mouseX <= 1050+50 && mouseY >= 185 && mouseY <= 185+50){
       selected = !selected;
-      //println(value);
+    }
+    //erase (11)
+    if (value == 11 && mouseX >= 1050 && mouseX <= 1050+50 && mouseY >= 365 && mouseY <= 365+50){
+      selected = !selected;
     }
     else{
       //1-9
@@ -68,8 +65,6 @@ public class Button {
         
       }
     }
-    if (selected)
-      println(value);
   }
   
   int getValue() {
@@ -79,7 +74,7 @@ public class Button {
   boolean isSelected() {
     return selected;
   }
-  
+
   boolean setSelected(boolean newSelected) {
     boolean temp = selected;
     selected = newSelected;
