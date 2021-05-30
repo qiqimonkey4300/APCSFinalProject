@@ -48,31 +48,31 @@ void draw() {
 }
 /*
 void mousePressed() {
-  if (mouseButton == LEFT) {
-    for (int i = 0; i < 9; i++) {
-      for (Square s : grid[i]) {
-        s.click();
-        if (s.isSelected()) {
-          for (Square[] a : grid) {
-            for (Square b : a) {
-              if (b != s) s.setSelected(false);
-            }
-          }
-        }
-      }
-    }
-    for (Button b : tools) {
-      b.click();
-      if (b.isSelected()) {
-        //setValue(b.getValue());
-        for (Button c : tools) {
-          if (b != c){
-            b.setSelected(false);
-          }
-        }
-      }
-    }
-  }*/
+ if (mouseButton == LEFT) {
+ for (int i = 0; i < 9; i++) {
+ for (Square s : grid[i]) {
+ s.click();
+ if (s.isSelected()) {
+ for (Square[] a : grid) {
+ for (Square b : a) {
+ if (b != s) s.setSelected(false);
+ }
+ }
+ }
+ }
+ }
+ for (Button b : tools) {
+ b.click();
+ if (b.isSelected()) {
+ //setValue(b.getValue());
+ for (Button c : tools) {
+ if (b != c){
+ b.setSelected(false);
+ }
+ }
+ }
+ }
+ }*/
 
 
 void mousePressed() {
@@ -80,29 +80,28 @@ void mousePressed() {
     for (Button button : tools) {
       button.click();
       if (button.isSelected()) {
-        
+
         /*for (Button c : tools) {
-          if (button != c){
-            button.setSelected(false);
-          }
-        }*/
-        
+         if (button != c){
+         button.setSelected(false);
+         }
+         }*/
+
         for (int i = 0; i < 9; i++) {
           for (Square s : grid[i]) {
             s.click();
             if (s.isSelected() && s.getState() != 0) {
-              
+
               for (Square[] a : grid) {
                 for (Square b : a) {
                   if (b != s) s.setSelected(false);
                 }
               }
-              
-              if (button.getValue() != 0 && button.getValue() != 11){ //not help or erase
+
+              if (button.getValue() != 0 && button.getValue() != 11) { //not help or erase
                 s.setValue(button.getValue());
                 s.setState(1);
-              }
-              else if (button.getValue() == 11){
+              } else if (button.getValue() == 11) {
                 s.setValue(0);
                 s.setState(3);
               }
@@ -111,7 +110,7 @@ void mousePressed() {
           //check();
         }
         for (Button c : tools) {
-          if (button != c){
+          if (button != c) {
             c.setSelected(false);
           }
         }
@@ -127,31 +126,33 @@ boolean check() {
       //specifically checking row/column/box
       for (int i = 0; i < 9; i++) {
         for (int j = 0; j < 9; j++) {
-          //row
-          if (a == i && b != j && grid[a][b].getValue() == grid[i][j].getValue()) {
-            if (grid[a][b].getState() != 0) {
-              grid[a][b].setState(2);
-            } else {
-              grid[a][b].setState(4);
+          if (grid[a][b].getValue() != 0 && grid[i][j].getValue() != 0) {
+            //row
+            if (a == i && b != j && grid[a][b].getValue() == grid[i][j].getValue()) {
+              if (grid[a][b].getState() != 0) {
+                grid[a][b].setState(2);
+              } else {
+                grid[a][b].setState(4);
+              }
+              if (grid[i][j].getState() != 0) {
+                grid[i][j].setState(2);
+              } else {
+                grid[i][j].setState(4);
+              }
             }
-            if (grid[i][j].getState() != 0) {
-              grid[i][j].setState(2);
-            } else {
-              grid[i][j].setState(4);
-            }
-          }
-          
-          //column
-          if (b == j && a != i && grid[a][b].getValue() == grid[i][j].getValue()) {
-            if (grid[a][b].getState() != 0) {
-              grid[a][b].setState(2);
-            } else {
-              grid[a][b].setState(4);
-            }
-            if (grid[i][j].getState() != 0) {
-              grid[i][j].setState(2);
-            } else {
-              grid[i][j].setState(4);
+
+            //column
+            if (b == j && a != i && grid[a][b].getValue() == grid[i][j].getValue()) {
+              if (grid[a][b].getState() != 0) {
+                grid[a][b].setState(2);
+              } else {
+                grid[a][b].setState(4);
+              }
+              if (grid[i][j].getState() != 0) {
+                grid[i][j].setState(2);
+              } else {
+                grid[i][j].setState(4);
+              }
             }
           }
         }
@@ -206,6 +207,7 @@ void create() {
   for (int i = 0; i < 9; i++) {
     for (int j = 0; j < 9; j++) {
       if (grid[i][j].getValue() != 0) {
+        //System.out.println(grid[i][j].row + ", " + grid[i][j].col);
         grid[i][j].setState(0);
       }
     }
