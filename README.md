@@ -31,4 +31,4 @@ Annabel: I added a color key in instructions, as well as assigned the number but
 
 05/29/2021 - 05/30/2021 HOME ~  
 Shyne: I was able to solve multiple issues that arose from the checking process, and I added checking the boxes as well instead of just the rows and columns.  
-Annabel: I was able to make only one button selectable at a time, and started combining Button and Square methods into Sudoku so one square could be selected to fill in one number. The erase button now works.  
+Annabel: I was able to make only one button selectable at a time, and started combining Button and Square methods into Sudoku so one square could be selected to fill in one number. The erase button now works, and cannot erase preset contradictions.
