@@ -121,6 +121,15 @@ void mousePressed() {
 
 boolean check() {
   //change everything to original + player filled
+  for (Square[] a : grid) {
+    for (Square b : a) {
+      if (b.getState() == 2) {
+        b.setState(1);
+      } else if (b.getState() == 4) {
+        b.setState(0);
+      }
+    }
+  }
   
   //check for duplicates
   for (int a = 0; a < 9; a++) {
