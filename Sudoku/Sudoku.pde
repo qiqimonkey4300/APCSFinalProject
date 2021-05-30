@@ -4,8 +4,8 @@ void setup() {
   size(1280, 720);
 
   //create array of Button
-  tools = new Button[11];
-  for (int i = 0; i < 11; i++) {
+  tools = new Button[12];
+  for (int i = 0; i < 12; i++) {
     tools[i] = new Button(i);
   }
 
@@ -73,8 +73,7 @@ void mousePressed() {
       }
     }
   }*/
-  
-//trying to combine them
+
 
 void mousePressed() {
   if (mouseButton == LEFT) {
@@ -109,6 +108,12 @@ void mousePressed() {
               }
             }
           }
+          //check();
+        }
+        for (Button c : tools) {
+          if (button != c){
+            c.setSelected(false);
+          }
         }
       }
     }
@@ -128,7 +133,6 @@ boolean check() {
               grid[a][b].setState(2);
             } else {
               grid[a][b].setState(4);
-              println("original has changed");
             }
             if (grid[i][j].getState() != 0) {
               grid[i][j].setState(2);

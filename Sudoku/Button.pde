@@ -51,8 +51,8 @@ public class Button {
       selected = !selected;
     }
     //erase (11)
-    if (value == 11 && mouseX >= 1050 && mouseX <= 1050+50 && mouseY >= 365 && mouseY <= 365+50){
-      selected = !selected;
+    if (value == 11 && mouseX >= 1050 && mouseX <= 1050+50 && mouseY >= 465 && mouseY <= 465+50){
+      selected = true;
     }
     else{
       //1-9
