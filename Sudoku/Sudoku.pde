@@ -81,13 +81,31 @@ void mousePressed() {
     for (Button button : tools) {
       button.click();
       if (button.isSelected()) {
+        
+        /*for (Button c : tools) {
+          if (button != c){
+            button.setSelected(false);
+          }
+        }*/
+        
         for (int i = 0; i < 9; i++) {
           for (Square s : grid[i]) {
             s.click();
             if (s.isSelected() && s.getState() != 0) {
+              
+              for (Square[] a : grid) {
+                for (Square b : a) {
+                  if (b != s) s.setSelected(false);
+                }
+              }
+              
               if (button.getValue() != 0 && button.getValue() != 11){ //not help or erase
                 s.setValue(button.getValue());
                 s.setState(1);
+              }
+              else if (button.getValue() == 11){
+                s.setValue(0);
+                s.setState(3);
               }
             }
           }
@@ -110,6 +128,7 @@ boolean check() {
               grid[a][b].setState(2);
             } else {
               grid[a][b].setState(4);
+              println("original has changed");
             }
             if (grid[i][j].getState() != 0) {
               grid[i][j].setState(2);
