@@ -63,6 +63,13 @@ void mousePressed() {
     }
     for (Button b : tools) {
       b.click();
+      if (b.isSelected()){
+        for (Button c : tools){
+          if (b != c){
+            b.setSelected(false);
+          }
+        }
+      }
     }
   }
 }

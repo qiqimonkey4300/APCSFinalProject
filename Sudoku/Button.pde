@@ -63,12 +63,13 @@ public class Button {
       for (int i = 1; i <= 9; i++){
         if (value == i && mouseX >= x1 && mouseX <= x1+50 && mouseY >= y1 && mouseY <= y1+50){
           selected = true;
-          //println(value);
         }
         y1 += 60;
         
       }
     }
+    if (selected)
+      println(value);
   }
   
   int getValue() {
@@ -93,10 +94,10 @@ public class Button {
            + "\nSelect a cell/square, then tap a number to fill in the"
            + "\ncell. The same can be done to erase a square with the"
            + "\nerase tool.\n"
-           + "Color Codes:"
-           + "Blue - preset/standard numbers"
-           + "Black - player filled"
-           + "Red - incorrect fill-in resulting from a duplicate"
-           + "Purple - provides a contradiction but is preset";
+           + "\nColor Codes:"
+           + "\nBlue - preset/standard numbers"
+           + "\nBlack - player filled"
+           + "\nRed - incorrect fill-in resulting from a duplicate"
+           + "\nPurple - a preset # that provides a contradiction";
   
 }
