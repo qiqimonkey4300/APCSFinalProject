@@ -6,7 +6,7 @@ public class Button {
     value = Value;
     selected = false;
   }
-  
+   
   void display() {
     stroke(0);
     strokeWeight(2);

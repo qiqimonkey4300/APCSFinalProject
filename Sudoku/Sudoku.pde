@@ -7,7 +7,7 @@ void setup() {
   tools = new Button[12];
   for (int i = 0; i < 12; i++) {
     tools[i] = new Button(i);
-  }
+  } 
 
   //create array of Square
   grid = new Square[9][9];
