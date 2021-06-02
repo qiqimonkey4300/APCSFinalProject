@@ -1,6 +1,6 @@
 public class Square {
-  int state, value, row, col;
-  boolean selected;
+  private int state, value, row, col;
+  private boolean selected;
 
   Square(int Row, int Col) {
     state = 3;
