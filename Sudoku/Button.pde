@@ -1,6 +1,6 @@
 public class Button {
-  boolean selected;
-  int value;
+  private boolean selected;
+  private int value;
   
   Button(int Value) {
     value = Value;
