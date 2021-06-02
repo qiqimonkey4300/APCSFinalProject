@@ -34,5 +34,4 @@ Shyne: I was able to solve multiple issues that arose from the checking process,
 Annabel: I was able to make only one button selectable at a time, and started combining Button and Square methods into Sudoku so one square could be selected to fill in one number. The erase button now works, and cannot erase preset contradictions.
 
 06/02/2021 CLASS ~  
-Shyne:  
-Annabel:  
+Shyne and Annabel: We created and experimented with the demo branch. 
