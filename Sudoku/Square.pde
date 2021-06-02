@@ -70,4 +70,6 @@ public class Square {
     state = newState;
     return temp;
   }
+  
+  
 }
