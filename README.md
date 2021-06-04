@@ -35,3 +35,7 @@ Annabel: I was able to make only one button selectable at a time, and started co
 
 06/02/2021 CLASS ~  
 Shyne and Annabel: We created and experimented with the demo branch. 
+
+06/02/2021 - 06/06/2021 HOME~  
+Shyne: I made a title screen that will disappear when the play button is clicked.  
+Annabel: 
