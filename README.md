@@ -34,8 +34,8 @@ Shyne: I was able to solve multiple issues that arose from the checking process,
 Annabel: I was able to make only one button selectable at a time, and started combining Button and Square methods into Sudoku so one square could be selected to fill in one number. The erase button now works, and cannot erase preset contradictions.
 
 06/02/2021 CLASS ~  
-Shyne and Annabel: We created and experimented with the demo branch. 
+Shyne and Annabel: We created and experimented with the demo branch.
 
 06/02/2021 - 06/06/2021 HOME~  
 Shyne: I made a title screen that will disappear when the play button is clicked.  
-Annabel: 
+Annabel: I adjusted the tools bar to incorporate the selectable pencil and restart button.
