@@ -1,49 +1,78 @@
 Button[] tools;
 Square[][] grid;
+boolean title = true;
 void setup() {
   size(1280, 720);
 
-  //create array of Button
-  tools = new Button[12];
-  for (int i = 0; i < 12; i++) {
-    tools[i] = new Button(i);
-  }
-
-  //create array of Square
-  grid = new Square[9][9];
-  for (int i = 0; i < 9; i++) {
-    for (int j = 0; j < 9; j++) {
-      grid[i][j] = new Square(i, j);
+  if (!title) {
+    //create array of Button
+    tools = new Button[12];
+    for (int i = 0; i < 12; i++) {
+      tools[i] = new Button(i);
     }
-  }
 
-  create();
+    //create array of Square
+    grid = new Square[9][9];
+    for (int i = 0; i < 9; i++) {
+      for (int j = 0; j < 9; j++) {
+        grid[i][j] = new Square(i, j);
+      }
+    }
+
+    create();
+  }
 }
 
 void draw() {
   background(255);
-  //grid
-  stroke(0);
-  for (int i = 0; i < 10; i++) {
-    if (i % 3 == 0) {
-      strokeWeight(4);
-    } else {
-      strokeWeight(1);
+
+  if (title) {
+    textAlign(CENTER);
+    fill(0);
+    textSize(90);
+    text("Migraine My Brain", 640, 250);
+
+    textSize(25);
+    text("Have an enmity against numbers?" 
+      + "\nHere’s a chance to put them in their place!", 640, 320);
+
+    rectMode(CENTER);
+    fill(255);
+    rect(640, 460, 200, 100);
+
+    textSize(60);
+    fill(#0326FF);
+    text("PLAY", 640, 480);
+
+    textSize(20);
+    fill(0);
+    text("Created by:"
+      + "\nThe Last Two Brain Cells at 2 AM" 
+      + "\nShyne Choi and Annabel Zhang", 640, 600);
+  } else {
+    //grid
+    stroke(0);
+    for (int i = 0; i < 10; i++) {
+      if (i % 3 == 0) {
+        strokeWeight(4);
+      } else {
+        strokeWeight(1);
+      }
+      line(90 + 60 * i, 90, 90 + 60 * i, 630);
+      line(90, 90 + 60 * i, 630, 90 + 60 * i);
     }
-    line(90 + 60 * i, 90, 90 + 60 * i, 630);
-    line(90, 90 + 60 * i, 630, 90 + 60 * i);
-  }
 
-  for (Square[] a : grid) {
-    for (Square s : a) {
-      s.display();
+    for (Square[] a : grid) {
+      for (Square s : a) {
+        s.display();
+      }
     }
-  }
 
-  check();
+    check();
 
-  for (Button b : tools) {
-    b.display();
+    for (Button b : tools) {
+      b.display();
+    }
   }
 }
 /*
@@ -77,34 +106,39 @@ void mousePressed() {
 
 void mousePressed() {
   if (mouseButton == LEFT) {
-    for (Button button : tools) {
-      button.click();
-      if (button.isSelected()) {
+    if (title) {
+      //center mode, rect: 640, 460, 200, 100
+      //click play --> title = false;
+    } else {
+      for (Button button : tools) {
+        button.click();
+        if (button.isSelected()) {
 
-        for (int i = 0; i < 9; i++) {
-          for (Square s : grid[i]) {
-            s.click();
-            if (s.isSelected() && s.getState() != 0) {
+          for (int i = 0; i < 9; i++) {
+            for (Square s : grid[i]) {
+              s.click();
+              if (s.isSelected() && s.getState() != 0) {
 
-              for (Square[] a : grid) {
-                for (Square b : a) {
-                  if (b != s) s.setSelected(false);
+                for (Square[] a : grid) {
+                  for (Square b : a) {
+                    if (b != s) s.setSelected(false);
+                  }
                 }
-              }
 
-              if (button.getValue() != 0 && button.getValue() != 11) { //not help or erase
-                s.setValue(button.getValue());
-                s.setState(1);
-              } else if (button.getValue() == 11 && s.getState() != 4) {
-                s.setValue(0);
-                s.setState(3);
+                if (button.getValue() != 0 && button.getValue() != 11) { //not help or erase
+                  s.setValue(button.getValue());
+                  s.setState(1);
+                } else if (button.getValue() == 11 && s.getState() != 4) {
+                  s.setValue(0);
+                  s.setState(3);
+                }
               }
             }
           }
-        }
-        for (Button c : tools) {
-          if (button != c) {
-            c.setSelected(false);
+          for (Button c : tools) {
+            if (button != c) {
+              c.setSelected(false);
+            }
           }
         }
       }
@@ -207,7 +241,7 @@ void create() {
   grid[1][4].setValue(1);
   grid[1][5].setValue(5);
   grid[1][6].setValue(8);
-  grid[1][8].setValue(7);
+  grid[1][8].setValue(7);  
   grid[2][0].setValue(9);
   grid[2][3].setValue(6);
   grid[2][5].setValue(3);

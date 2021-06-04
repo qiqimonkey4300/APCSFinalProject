@@ -52,7 +52,7 @@ public class Square {
   int getState() {
     return state;
   }
-  
+
   boolean setSelected(boolean newSelected) {
     boolean temp = selected;
     selected = newSelected;
@@ -70,6 +70,4 @@ public class Square {
     state = newState;
     return temp;
   }
-  
-  
 }
