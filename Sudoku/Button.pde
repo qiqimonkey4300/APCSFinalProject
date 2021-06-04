@@ -58,13 +58,18 @@ public class Button {
 
   void click() {
     //help (0)
-    if (value == 0 && mouseX >= 1050 && mouseX <= 1050+50 && mouseY >= 185 && mouseY <= 185+50) {
+    if (value == 0 && mouseX >= 1050 && mouseX <= 1050+50 && mouseY >= 155 && mouseY <= 155+50) {
       selected = !selected;
     }
     //erase (10)
-    if (value == 10 && mouseX >= 1050 && mouseX <= 1050+50 && mouseY >= 465 && mouseY <= 465+50) {
+    if (value == 10 && mouseX >= 1050 && mouseX <= 1050+50 && mouseY >= 275 && mouseY <= 275+50) {
       selected = true;
-    } else {
+    } 
+    //pencil (11)
+    
+    //restart (12)
+    
+    else {
       //1-9
       int x1 = 810; 
       int y1 = 95;

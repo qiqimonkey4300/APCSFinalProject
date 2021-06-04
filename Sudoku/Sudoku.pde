@@ -127,10 +127,10 @@ void mousePressed() {
                   }
                 }
 
-                if (button.getValue() != 0 && button.getValue() != 11) { //not help or erase
+                if (button.getValue() != 0 && button.getValue() != 10) { //not help or erase
                   s.setValue(button.getValue());
                   s.setState(1);
-                } else if (button.getValue() == 11 && s.getState() != 4) {
+                } else if (button.getValue() == 10 && s.getState() != 4) {
                   s.setValue(0);
                   s.setState(3);
                 }
