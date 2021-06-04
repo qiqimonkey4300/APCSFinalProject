@@ -3,8 +3,6 @@ Square[][] grid;
 boolean title = true;
 void setup() {
   size(1280, 720);
-
-  if (!title) {
     //create array of Button
     tools = new Button[12];
     for (int i = 0; i < 12; i++) {
@@ -20,7 +18,6 @@ void setup() {
     }
 
     create();
-  }
 }
 
 void draw() {
@@ -50,6 +47,8 @@ void draw() {
       + "\nThe Last Two Brain Cells at 2 AM" 
       + "\nShyne Choi and Annabel Zhang", 640, 600);
   } else {
+    textAlign(LEFT);
+    rectMode(CORNER);
     //grid
     stroke(0);
     for (int i = 0; i < 10; i++) {
@@ -109,6 +108,9 @@ void mousePressed() {
     if (title) {
       //center mode, rect: 640, 460, 200, 100
       //click play --> title = false;
+      if (mouseX < 740 && mouseX > 540 && mouseY < 510 && mouseY > 410) {
+        title = false;
+      }
     } else {
       for (Button button : tools) {
         button.click();
