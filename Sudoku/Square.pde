@@ -17,7 +17,7 @@ public class Square {
       textSize(30);
       text(value, 110 + col * 60, 130 + row * 60);
     } else if (state == 1) {
-      fill(0);
+      fill(#000000);
       textSize(30);
       text(value, 110 + col * 60, 130 + row * 60);
     } else if (state == 2) {
