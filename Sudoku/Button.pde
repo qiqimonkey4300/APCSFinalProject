@@ -66,9 +66,14 @@ public class Button {
       selected = true;
     } 
     //pencil (11)
-    
+    /*
+    if (value == 11 && mouseX >= 1050 && mouseX <= 1050+50 && mouseY >= 395 && mouseY <= 395+50) {
+      selected = true;
+    } 
     //restart (12)
-    
+    if (value == 12 && mouseX >= 1050 && mouseX <= 1050+50 && mouseY >= 515 && mouseY <= 515+50) {
+      selected = true;
+    } */
     else {
       //1-9
       int x1 = 810; 
