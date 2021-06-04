@@ -22,9 +22,9 @@ public class Button {
       fill(255);
 
       //help
-      rect(1050, 185, 50, 50, 7);
+      rect(1050, 155, 50, 50, 7);
       fill(0);
-      text("?", 1070, 222);
+      text("?", 1070, 192);
       //instructions
       if (value == 0 && selected) {
         fill(255, 100);
@@ -38,9 +38,21 @@ public class Button {
 
       //erase
       fill(255);
-      rect(1050, 465, 50, 50, 7);
+      rect(1050, 275, 50, 50, 7);
       fill(0);
-      text("E", 1067, 503);
+      text("E", 1067, 312);
+      
+      //pencil
+      fill(255);
+      rect(1050, 395, 50, 50, 7);
+      fill(0);
+      text("P", 1067, 433);
+      
+      //restart
+      fill(255);
+      rect(1050, 515, 50, 50, 7);
+      fill(0);
+      text("R", 1067, 551);
     }
   }
 
