@@ -120,12 +120,14 @@ void mousePressed() {
         button.click();
         if (button.isSelected()) {
 
-          //resetting (only works for state 1 atm)
+          //resetting
           if (button.getValue() == 12) {
             for (int i = 0; i < 9; i++) {
               for (Square s : grid[i]) {
-                if (s.getState() == 1 || s.getState() == 2)
+                if (s.getState() == 1 || s.getState() == 2) {
+                  s.setValue(0);
                   s.setState(3);
+                }
               }
             }
           }
