@@ -247,18 +247,39 @@ boolean check() {
 }
 
 void create() {
-  int[] numbers = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
+  //make a random row;
+  int[] oneRow = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
   Random a = new Random();
 
   for (int i = 0; i < 9; i++) {
-    int rand = a.nextInt(numbers.length);
-    int temp = numbers[i];
-    numbers[i] = numbers[rand];
-    numbers[rand] = temp;
+    int rand = a.nextInt(oneRow.length);
+    int temp = oneRow[i];
+    oneRow[i] = oneRow[rand];
+    oneRow[rand] = temp;
+  }
+
+  //make the other eight rows
+  int[][] orig = new int[9][9];
+  orig[0] = oneRow;
+
+  for (int i = 1; i < orig.length; i++) {
+    if (i % 3 == 0) {
+      for (int j = 0; j < 8; j++) {
+        orig[i][j] = orig[i - 1][j + 1];
+      }
+      orig[i][8] = orig[i - 1][0];
+    } else {
+      for (int j = 0; j < 6; j++) {
+        orig[i][j] = orig[i - 1][j + 3];
+      }
+      for (int j = 0; j < 3; j++) {
+        orig[i][j + 6] = orig[i - 1][j];
+      }
+    }
   }
 
   for (int i = 0; i < 9; i++) {
-    System.out.print(numbers[i] + ", ");
+    System.out.println(Arrays.toString(orig[i]));
   }
 
   //setting states to original
