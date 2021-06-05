@@ -4,8 +4,8 @@ boolean title = true;
 void setup() {
   size(1280, 720);
     //create array of Button
-    tools = new Button[12];
-    for (int i = 0; i < 12; i++) {
+    tools = new Button[13];
+    for (int i = 0; i < 13; i++) {
       tools[i] = new Button(i);
     }
 
@@ -22,7 +22,7 @@ void setup() {
 
 void draw() {
   background(255);
-
+  //title page
   if (title) {
     textAlign(CENTER);
     fill(0);
@@ -49,6 +49,7 @@ void draw() {
   } else {
     textAlign(LEFT);
     rectMode(CORNER);
+    
     //grid
     stroke(0);
     for (int i = 0; i < 10; i++) {
@@ -116,8 +117,19 @@ void mousePressed() {
         button.click();
         if (button.isSelected()) {
 
+          //resetting (only works for state 1 atm)
+          if (button.getValue() == 12) {
+            for (int i = 0; i < 9; i++) {
+              for (Square s : grid[i]) {
+                if (s.getState() == 1 || s.getState() == 2)
+                  s.setState(3);
+              }
+            }
+          }
+          
           for (int i = 0; i < 9; i++) {
             for (Square s : grid[i]) {
+              
               s.click();
               if (s.isSelected() && s.getState() != 0) {
 
@@ -131,8 +143,8 @@ void mousePressed() {
                   s.setValue(button.getValue());
                   s.setState(1);
                 } else if (button.getValue() == 10 && s.getState() != 4) {
-                  s.setValue(0);
-                  s.setState(3);
+                    s.setValue(0);
+                    s.setState(3);
                 }
               }
             }
