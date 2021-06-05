@@ -24,7 +24,7 @@ void setup() {
 
 void draw() {
   background(255);
-  
+
   //title page
   if (title) {
     textAlign(CENTER);
@@ -279,19 +279,22 @@ void create() {
     }
   }
   
-  int[] rowNums = new int[]{1, 4, 7};
-  Random x = new Random();
-
-  for (int i = 0; i < 3; i++) {
-    int rand = x.nextInt(rowNums.length);
-    int temp = rowNums[i];
-    rowNums[i] = rowNums[rand];
-    rowNums[rand] = temp;
+  for (int[] i : orig) {
+    System.out.println(Arrays.toString(i));
   }
   
-  System.out.println(Arrays.toString(rowNums));
+  System.out.println();
+  
+  //insert for loop of however many times to change around rows and col sections (so randomizing boxes basically - hopefully)
+  int[][] origFinal = helpCreate(orig);
+  
+  for (int[] i : origFinal) {
+    System.out.println(Arrays.toString(i));
+  }
   
   
+
+
 
   //setting states to original
   for (int i = 0; i < 9; i++) {
@@ -302,4 +305,54 @@ void create() {
       }
     }
   }
+}
+
+int[][] helpCreate(int[][] orig) {
+  //random 0 - 2 sections
+  int[] rowNums = new int[]{0, 3, 6};
+  Random y = new Random();
+
+  for (int i = 0; i < 3; i++) {
+    int rand = y.nextInt(rowNums.length);
+    int temp = rowNums[i];
+    rowNums[i] = rowNums[rand];
+    rowNums[rand] = temp;
+  }
+  
+  //switch up 3-row sections
+  int[][] origRowMix = new int[9][9];
+  for (int i = 0; i < rowNums.length; i++) {
+    origRowMix[i * 3] = orig[rowNums[i]];
+    origRowMix[i * 3 + 1] = orig[rowNums[i] + 1];
+    origRowMix[i * 3 + 2] = orig[rowNums[i] + 2];
+  }
+  
+  //switch rows and cols
+  int[][] origSwitch = new int[9][9];
+  for (int i = 0; i < 9; i++) {
+    for (int j = 0; j < 9; j++) {
+      origSwitch[j][i] = origRowMix[i][j];
+    }
+  }
+  
+  //random 0 - 2 sections
+  int[] colNums = new int[]{0, 3, 6};
+  Random x = new Random();
+
+  for (int i = 0; i < 3; i++) {
+    int rand = x.nextInt(colNums.length);
+    int temp = colNums[i];
+    colNums[i] = colNums[rand];
+    colNums[rand] = temp;
+  }
+  
+  //switch up 3-col sections
+  int[][] origColMix = new int[9][9];
+  for (int i = 0; i < 3; i++) {
+    origColMix[i * 3] = origSwitch[colNums[i]];
+    origColMix[i * 3 + 1] = origSwitch[colNums[i] + 1];
+    origColMix[i * 3 + 2] = origSwitch[colNums[i] + 2];
+  }
+  
+  return origColMix;
 }
