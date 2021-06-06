@@ -53,6 +53,9 @@ public class Button {
       rect(1050, 515, 50, 50, 7);
       fill(0);
       text("R", 1067, 551);
+      if (value == 12 && selected) {
+        //reset
+      }
     }
   }
 

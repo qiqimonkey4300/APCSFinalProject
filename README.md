@@ -38,4 +38,4 @@ Shyne and Annabel: We created and experimented with the demo branch.
 
 06/02/2021 - 06/06/2021 HOME~  
 Shyne: I made a title screen that will disappear when the play button is clicked.  
-Annabel: I adjusted the tools bar to incorporate the selectable pencil and restart button.
+Annabel: I adjusted the tools bar to incorporate the selectable pencil and restart button. The restart button now works as intended.
