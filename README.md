@@ -37,5 +37,5 @@ Annabel: I was able to make only one button selectable at a time, and started co
 Shyne and Annabel: We created and experimented with the demo branch.
 
 06/02/2021 - 06/06/2021 HOME~  
-Shyne: I made a title screen that will disappear when the play button is clicked.  
+Shyne: I made a title screen that will disappear when the play button is clicked. I also made for the program to randomly choose a puzzle that hasn't yet been played (which will come into play when newGame is implemented).  
 Annabel: I adjusted the tools bar to incorporate the selectable pencil and restart button.
