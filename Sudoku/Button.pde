@@ -1,6 +1,7 @@
 public class Button {
   private boolean selected;
   private int value;
+  private boolean clicked = false;
 
   Button(int Value) {
     value = Value;
@@ -12,8 +13,13 @@ public class Button {
     strokeWeight(2);
     //1-9
     int yval = 95;
-    for (int i = 1; i < 10; i++) {
+    int x1 = 810; 
+    for (int i = 1; i <= 9; i++) {
       fill(255);
+      if (mouseX >= x1 && mouseX <= x1+50 && mouseY >= yval && mouseY <= yval+50) {
+        fill(200);
+      }
+      
       rect(810, yval, 50, 50, 7);
       textSize(30);
       fill(0);
@@ -22,6 +28,12 @@ public class Button {
       fill(255);
 
       //help
+      if (mouseX >= 1050 && mouseX <= 1050+50 && mouseY >= 155 && mouseY <= 155+50) {
+        fill(200);
+      }
+      else {
+        fill(255);
+      }
       rect(1050, 155, 50, 50, 7);
       fill(0);
       text("?", 1070, 192);
@@ -37,19 +49,34 @@ public class Button {
       }
 
       //erase
-      fill(255);
+      if (mouseX >= 1050 && mouseX <= 1050+50 && mouseY >= 275 && mouseY <= 275+50) {
+        fill(200);
+      }
+      else {
+        fill(255);
+      }
       rect(1050, 275, 50, 50, 7);
       fill(0);
       text("E", 1067, 312);
       
       //pencil
-      fill(255);
+      if (mouseX >= 1050 && mouseX <= 1050+50 && mouseY >= 395 && mouseY <= 395+50) {
+        fill(200);
+      }
+      else {
+        fill(255);
+      }
       rect(1050, 395, 50, 50, 7);
       fill(0);
       text("P", 1067, 433);
       
       //restart
-      fill(255);
+      if (mouseX >= 1050 && mouseX <= 1050+50 && mouseY >= 515 && mouseY <= 515+50) {
+        fill(200);
+      }
+      else {
+        fill(255);
+      }
       rect(1050, 515, 50, 50, 7);
       fill(0);
       text("R", 1067, 551);
@@ -69,10 +96,9 @@ public class Button {
       selected = true;
     } 
     //pencil (11)
-    /*
     if (value == 11 && mouseX >= 1050 && mouseX <= 1050+50 && mouseY >= 395 && mouseY <= 395+50) {
       selected = true;
-    } */
+    } 
     //restart (12)
     if (value == 12 && mouseX >= 1050 && mouseX <= 1050+50 && mouseY >= 515 && mouseY <= 515+50) {
       selected = true;
@@ -84,10 +110,16 @@ public class Button {
       for (int i = 1; i <= 9; i++) {
         if (value == i && mouseX >= x1 && mouseX <= x1+50 && mouseY >= y1 && mouseY <= y1+50) {
           selected = true;
+          
         }
         y1 += 60;
       }
     }
+  }
+
+  boolean hoverOver() {
+    
+    return true;
   }
 
   int getValue() {
