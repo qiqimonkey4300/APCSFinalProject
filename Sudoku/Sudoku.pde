@@ -1,9 +1,13 @@
-import java.util.*;
-
 Button[] tools;
 Square[][] grid;
 boolean title = true;
+ArrayList<Integer> puzzles = new ArrayList<Integer>();
+
 void setup() {
+  for (int i = 0; i < 10; i++) {
+    puzzles.add(i);
+  }
+
   size(1280, 720);
   //create array of Button
   tools = new Button[13];
@@ -249,198 +253,130 @@ boolean check() {
   return true;
 }
 
-void create() {
-  /*
-  //make a random row;
-   int[] oneRow = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
-   Random a = new Random();
-   
-   for (int i = 0; i < 9; i++) {
-   int rand = a.nextInt(oneRow.length);
-   int temp = oneRow[i];
-   oneRow[i] = oneRow[rand];
-   oneRow[rand] = temp;
-   }
-   
-   //make the other eight rows
-   int[][] orig = new int[9][9];
-   orig[0] = oneRow;
-   
-   for (int i = 1; i < orig.length; i++) {
-   if (i % 3 == 0) {
-   for (int j = 0; j < 8; j++) {
-   orig[i][j] = orig[i - 1][j + 1];
-   }
-   orig[i][8] = orig[i - 1][0];
-   } else {
-   for (int j = 0; j < 6; j++) {
-   orig[i][j] = orig[i - 1][j + 3];
-   }
-   for (int j = 0; j < 3; j++) {
-   orig[i][j + 6] = orig[i - 1][j];
-   }
-   }
-   }
-   
-   for (int[] i : orig) {
-   System.out.println(Arrays.toString(i));
-   }
-   
-   System.out.println();
-   
-   //insert for loop of however many times to change around rows and col sections (so randomizing boxes basically - hopefully)
-   //helpCreate(orig);
-   
-   
-   for (int i = 0; i < 20; i++) {
-   int[][] origFinal = helpCreate(orig);
-   
-   for (int j = 0; j < 9; j++) {
-   orig[j] = origFinal[j].clone();
-   }
-   }
-   
-   for (int[] i : orig) {
-   System.out.println(Arrays.toString(i));
-   System.out.println();
-   }
-   */
-
-
-  //preset
-  grid[0][0].setValue(6);
-  grid[0][1].setValue(8);
-  grid[0][5].setValue(7);
-  grid[0][6].setValue(1);
-  grid[1][1].setValue(2);
-  grid[1][3].setValue(9);
-  grid[1][4].setValue(1);
-  grid[1][5].setValue(5);
-  grid[1][6].setValue(8);
-  grid[1][8].setValue(7);  
-  grid[2][0].setValue(9);
-  grid[2][3].setValue(6);
-  grid[2][5].setValue(3);
-  grid[2][6].setValue(5);
-  grid[2][7].setValue(2);
-  grid[3][1].setValue(5);
-  grid[3][2].setValue(6);
-  grid[3][5].setValue(2);
-  grid[4][0].setValue(3);
-  grid[5][1].setValue(9);
-  grid[5][2].setValue(2);
-  grid[5][4].setValue(6);
-  grid[5][7].setValue(5);
-  grid[5][8].setValue(8);
-  grid[6][0].setValue(7);
-  grid[6][4].setValue(5);
-  grid[6][5].setValue(6);
-  grid[6][7].setValue(8);
-  grid[6][8].setValue(1);
-  grid[7][2].setValue(8);
-  grid[7][3].setValue(3);
-  grid[7][4].setValue(4);
-  grid[7][5].setValue(9);
-  grid[7][8].setValue(6);
-  grid[8][3].setValue(8);
-  grid[8][5].setValue(1);
-  grid[8][6].setValue(4);
-  grid[8][7].setValue(3);
-
-
-
-
-  //setting states to original
+void create() {  
+  int rand = (int)(Math.random() * puzzles.size());
+  int x = puzzles.remove(rand);
+  
   for (int i = 0; i < 9; i++) {
     for (int j = 0; j < 9; j++) {
+      grid[i][j].setValue(allPuzzles[x][i][j]);
       if (grid[i][j].getValue() != 0) {
-        //System.out.println(grid[i][j].row + ", " + grid[i][j].col);
         grid[i][j].setState(0);
       }
     }
   }
 }
 
-/*
-int[][] helpCreate(int[][] orig) {
- //random 0 - 2 sections
- int[] rowSec = new int[]{0, 3, 6};
- Random y = new Random();
- 
- for (int i = 0; i < 3; i++) {
- int rand = y.nextInt(3);
- int temp = rowSec[i];
- rowSec[i] = rowSec[rand];
- rowSec[rand] = temp;
- }
- 
- //switch up 3-row sections & within each 3-row section
- int[][] origRowSecMix = new int[9][9];
- int[][] origRowMix = new int[9][9];
- for (int i = 0; i < 3; i++) {
- origRowSecMix[i * 3] = orig[rowSec[i]];
- origRowSecMix[i * 3 + 1] = orig[rowSec[i] + 1];
- origRowSecMix[i * 3 + 2] = orig[rowSec[i] + 2];
- 
- //random 0 - 2 rows within 3-row section
- int[] rowNum = new int[]{0, 1, 2};
- Random y2 = new Random();
- 
- for (int j = 0; j < 3; j++) {
- int rand = y2.nextInt(3);
- int temp = rowNum[j];
- rowNum[j] = rowNum[rand];
- rowNum[rand] = temp;
- }
- 
- for (int j = 0; j < 3; j++) {
- origRowMix[i * 3 + j] = origRowSecMix[i * 3 + rowNum[j]];
- }
- }
- 
- //switch rows and cols
- int[][] origSwitch = new int[9][9];
- for (int i = 0; i < 9; i++) {
- for (int j = 0; j < 9; j++) {
- origSwitch[j][i] = origRowMix[i][j];
- }
- }
- 
- //random 0 - 2 sections
- int[] colSec = new int[]{0, 3, 6};
- Random x = new Random();
- 
- for (int i = 0; i < 3; i++) {
- int rand = x.nextInt(3);
- int temp = colSec[i];
- colSec[i] = colSec[rand];
- colSec[rand] = temp;
- }
- 
- //switch up 3-col sections & within each 3-col section
- int[][] origColSecMix = new int[9][9];
- int[][] origColMix = new int[9][9];
- for (int i = 0; i < 3; i++) {
- origColSecMix[i * 3] = origSwitch[colSec[i]];
- origColSecMix[i * 3 + 1] = origSwitch[colSec[i] + 1];
- origColSecMix[i * 3 + 2] = origSwitch[colSec[i] + 2];
- 
- //random 0 - 2 cols within 3-col section
- int[] colNum = new int[]{0, 1, 2};
- Random x2 = new Random();
- 
- for (int j = 0; j < 3; j++) {
- int rand = x2.nextInt(3);
- int temp = colNum[j];
- colNum[j] = colNum[rand];
- colNum[rand] = temp;
- }
- 
- for (int j = 0; j < 3; j++) {
- origColMix[i * 3 + j] = origColSecMix[i * 3 + colNum[j]];
- }
- }
- 
- return origColMix;
- }
- */
+
+//puzzles
+int[][] grid1 = new int[][] { //easy
+  {6, 8, 0, 0, 0, 7, 1, 0, 0}, 
+  {0, 2, 0, 9, 1, 5, 8, 0, 7}, 
+  {9, 0, 0, 6, 0, 3, 5, 2, 0}, 
+  {0, 5, 6, 0, 0, 2, 0, 0, 0}, 
+  {3, 0, 0, 0, 0, 0, 0, 0, 0}, 
+  {0, 9, 2, 0, 6, 0, 0, 5, 8}, 
+  {7, 0, 0, 0, 5, 6, 0, 8, 1}, 
+  {0, 0, 8, 3, 4, 9, 0, 0, 6}, 
+  {0, 0, 0, 8, 0, 1, 4, 3, 0}};
+
+int[][] grid2 = new int[][] { //medium
+  {0, 0, 4, 8, 0, 7, 1, 0, 3}, 
+  {0, 0, 3, 0, 0, 9, 5, 0, 0}, 
+  {0, 0, 0, 5, 3, 0, 8, 0, 4}, 
+  {4, 0, 0, 0, 6, 2, 0, 3, 0}, 
+  {7, 0, 6, 0, 8, 5, 0, 0, 0}, 
+  {9, 8, 0, 0, 0, 0, 0, 5, 0}, 
+  {0, 0, 5, 0, 0, 6, 3, 0, 2}, 
+  {0, 0, 0, 0, 0, 8, 0, 7, 0}, 
+  {0, 0, 0, 7, 0, 0, 0, 0, 0}};
+
+int[][] grid3 = new int[][] { //easy
+  {9, 2, 0, 3, 4, 0, 0, 8, 0}, 
+  {4, 7, 3, 8, 0, 1, 0, 0, 5}, 
+  {8, 0, 0, 7, 0, 6, 0, 3, 4}, 
+  {0, 8, 5, 0, 0, 9, 2, 0, 0}, 
+  {0, 0, 9, 0, 0, 0, 4, 7, 0}, 
+  {7, 3, 0, 0, 6, 0, 8, 0, 9}, 
+  {0, 0, 0, 0, 0, 0, 0, 0, 2}, 
+  {3, 4, 0, 0, 0, 0, 0, 0, 1}, 
+  {0, 0, 7, 2, 5, 4, 3, 6, 0}};
+
+int[][] grid4 = new int[][] { //easy
+  {9, 8, 0, 0, 0, 2, 3, 0, 0}, 
+  {0, 0, 3, 5, 4, 9, 0, 7, 0}, 
+  {0, 5, 0, 8, 3, 0, 4, 9, 6}, 
+  {8, 0, 2, 0, 0, 0, 0, 0, 4}, 
+  {7, 0, 5, 3, 0, 0, 1, 0, 2}, 
+  {1, 9, 6, 0, 8, 0, 5, 0, 0}, 
+  {0, 0, 9, 0, 6, 3, 8, 5, 1}, 
+  {3, 7, 8, 0, 0, 0, 0, 0, 0}, 
+  {0, 0, 1, 0, 0, 0, 0, 0, 0}};
+
+int[][] grid5 = new int[][] {  //medium
+  {0, 0, 8, 1, 9, 6, 7, 0, 3}, 
+  {1, 0, 0, 0, 3, 0, 0, 0, 0}, 
+  {0, 6, 0, 0, 0, 0, 2, 0, 0}, 
+  {0, 0, 0, 2, 0, 0, 6, 0, 0}, 
+  {0, 0, 7, 0, 8, 4, 5, 0, 0}, 
+  {0, 0, 0, 0, 1, 0, 0, 2, 0}, 
+  {4, 5, 0, 3, 0, 0, 0, 0, 2}, 
+  {0, 3, 0, 0, 0, 9, 0, 8, 0}, 
+  {9, 8, 2, 0, 6, 0, 0, 0, 4}};
+
+int[][] grid6 = new int[][] { //easy
+  {6, 1, 0, 0, 0, 0, 0, 5, 4}, 
+  {3, 0, 8, 0, 0, 4, 0, 0, 7}, 
+  {0, 0, 0, 0, 2, 0, 0, 1, 0}, 
+  {0, 8, 0, 0, 0, 0, 0, 0, 3}, 
+  {5, 0, 1, 2, 7, 0, 0, 0, 0}, 
+  {0, 0, 0, 8, 0, 1, 0, 7, 0}, 
+  {0, 0, 0, 0, 5, 0, 6, 3, 0}, 
+  {9, 5, 3, 1, 0, 6, 7, 4, 0}, 
+  {1, 7, 0, 4, 3, 2, 8, 9, 0}};
+
+int[][] grid7 = new int[][] { //easy
+  {0, 6, 0, 0, 0, 0, 4, 2, 0}, 
+  {3, 0, 0, 0, 0, 8, 9, 0, 0}, 
+  {0, 0, 7, 2, 4, 5, 6, 0, 0}, 
+  {9, 0, 6, 3, 0, 4, 0, 0, 0}, 
+  {0, 7, 3, 0, 1, 0, 2, 0, 0}, 
+  {8, 5, 0, 0, 6, 2, 3, 4, 9}, 
+  {0, 0, 4, 1, 2, 0, 0, 9, 8}, 
+  {0, 0, 9, 0, 0, 3, 0, 6, 0}, 
+  {6, 0, 0, 4, 0, 0, 1, 3, 0}};
+
+int[][] grid8 = new int[][] { //medium
+  {5, 7, 3, 0, 0, 0, 0, 9, 6}, 
+  {0, 0, 6, 1, 0, 0, 0, 0, 0}, 
+  {0, 2, 0, 3, 6, 0, 0, 4, 5}, 
+  {0, 0, 0, 4, 0, 0, 3, 0, 0}, 
+  {8, 0, 0, 0, 0, 6, 4, 2, 0}, 
+  {0, 0, 4, 0, 0, 2, 0, 6, 0}, 
+  {0, 5, 1, 6, 2, 7, 0, 0, 0}, 
+  {0, 0, 0, 0, 0, 0, 0, 0, 0}, 
+  {4, 0, 0, 8, 0, 0, 2, 0, 7}};
+
+int[][] grid9 = new int[][] { //easy
+  {5, 0, 0, 1, 0, 6, 0, 0, 4}, 
+  {0, 8, 0, 0, 4, 5, 3, 9, 0}, 
+  {0, 0, 0, 8, 3, 2, 0, 5, 0}, 
+  {3, 1, 0, 0, 8, 4, 6, 0, 2}, 
+  {4, 0, 0, 0, 0, 0, 0, 3, 1}, 
+  {2, 7, 0, 0, 0, 0, 0, 0, 9}, 
+  {6, 2, 0, 0, 0, 8, 4, 0, 5}, 
+  {8, 5, 1, 0, 0, 0, 7, 0, 3}, 
+  {0, 4, 0, 5, 0, 0, 0, 2, 0}};
+
+int[][] grid10 = new int[][] { //easy
+  {0, 0, 4, 0, 0, 0, 0, 3, 9}, 
+  {5, 1, 0, 0, 0, 3, 0, 0, 6}, 
+  {0, 0, 0, 7, 9, 1, 5, 4, 2}, 
+  {0, 7, 8, 6, 0, 9, 4, 5, 0}, 
+  {0, 4, 3, 0, 0, 8, 2, 0, 0}, 
+  {0, 5, 2, 0, 7, 0, 0, 0, 8}, 
+  {2, 3, 0, 5, 0, 0, 0, 0, 0}, 
+  {0, 9, 0, 0, 0, 7, 0, 2, 1}, 
+  {4, 0, 7, 9, 0, 0, 3, 0, 0}};
+
+int[][][] allPuzzles = new int[][][]{grid1, grid2, grid3, grid4, grid5, grid6, grid7, grid8, grid9, grid10};
