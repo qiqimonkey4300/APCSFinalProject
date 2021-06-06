@@ -1,7 +1,6 @@
 public class Button {
   private boolean selected;
   private int value;
-  private boolean clicked = false;
 
   Button(int Value) {
     value = Value;
@@ -15,9 +14,11 @@ public class Button {
     int yval = 95;
     int x1 = 810; 
     for (int i = 1; i <= 9; i++) {
-      fill(255);
       if (mouseX >= x1 && mouseX <= x1+50 && mouseY >= yval && mouseY <= yval+50) {
         fill(200);
+      }
+      else {
+        fill(255);
       }
       
       rect(810, yval, 50, 50, 7);
