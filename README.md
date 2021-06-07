@@ -39,3 +39,11 @@ Shyne and Annabel: We created and experimented with the demo branch.
 06/02/2021 - 06/06/2021 HOME~  
 Shyne: I made a title screen that will disappear when the play button is clicked. I also made for the program to randomly choose a puzzle that hasn't yet been played (which will come into play when newGame is implemented).  
 Annabel: I adjusted the tools bar to incorporate the selectable pencil and restart button. The buttons now darken if they are hovered over.
+
+06/07/2021 CLASS ~  
+Shyne: I was able to get selected buttons to show up in yellow.  
+Annabel:
+
+06/07/2021 - 06/08/2021 HOME  
+Shyne:  
+Annabel:
