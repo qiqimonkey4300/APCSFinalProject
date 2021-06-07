@@ -28,7 +28,7 @@ public class Button {
       text("?", 1070, 192);
       //instructions
       if (selected) {
-        fill(255, 100);
+        fill(255);
         rect(89, 89, 542, 542);
         fill(0);
         text("Here's how you play:", 95, 120);
