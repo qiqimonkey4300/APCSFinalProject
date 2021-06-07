@@ -21,7 +21,6 @@ public class Button {
       fill(0);
       text(i, 825, y1 + 35);
       y1 += 60;
-      fill(255);
 
       //help
       colorFill(1050, 155);
@@ -38,6 +37,7 @@ public class Button {
         //scroll all the way down
         text(t, 95, 170);
       }
+    }
 
       //erase
       colorFill(1050, 275);
@@ -56,7 +56,7 @@ public class Button {
       rect(1050, 515, 50, 50, 7);
       fill(0);
       text("R", 1067, 551);
-    }
+    
   }
 
   void click() {
@@ -122,6 +122,9 @@ public class Button {
     + "\nSelect a number, then tap a square to fill it in."
     + "\nChange the number being filled in by clicking a different #."
     + "\nThe same can be done to erase a square with the erase tool.\n"
+
+    + "\nTools:"
+    + "\nE - Erase  |  P - Pencil  |  R - Restart\n"
 
     + "\nColor Codes:"
     + "\nBlue - preset/standard numbers"
