@@ -42,7 +42,7 @@ Annabel: I adjusted the tools bar to incorporate the selectable pencil and resta
 
 06/07/2021 CLASS ~  
 Shyne: I was able to get selected buttons to show up in yellow.  
-Annabel:
+Annabel: I updated the help screen and fixed help screen transparency bug.
 
 06/07/2021 - 06/08/2021 HOME  
 Shyne:  
