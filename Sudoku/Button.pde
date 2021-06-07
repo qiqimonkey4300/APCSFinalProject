@@ -1,7 +1,6 @@
 public class Button {
   private boolean selected;
   private int value;
-  private boolean clicked;
 
   Button(int Value) {
     value = Value;
@@ -15,9 +14,6 @@ public class Button {
       //1-9
       int y1 = 95 + 60 * (value - 1);
       colorFill(810, y1);
-      if (selected) {
-        fill(#F6FF00);
-      }
       rect(810, y1, 50, 50, 7);
       textSize(30);
       fill(0);
@@ -27,9 +23,6 @@ public class Button {
     //help
     if (value == 0) {
       colorFill(1050, 155);
-      if (selected) {
-        fill(#F6FF00);
-      }
       rect(1050, 155, 50, 50, 7);
       fill(0);
       text("?", 1070, 192);
@@ -48,9 +41,6 @@ public class Button {
     //erase
     if (value == 10) {
       colorFill(1050, 275);
-      if (selected) {
-        fill(#F6FF00);
-      }
       rect(1050, 275, 50, 50, 7);
       fill(0);
       text("E", 1067, 312);
@@ -59,9 +49,6 @@ public class Button {
     //pencil
     if (value == 11) {
       colorFill(1050, 395);
-      if (selected) {
-        fill(#F6FF00);
-      }
       rect(1050, 395, 50, 50, 7);
       fill(0);
       text("P", 1067, 433);
@@ -70,9 +57,6 @@ public class Button {
     //restart
     if (value == 12) {
       colorFill(1050, 515);
-      if (selected) {
-        fill(#F6FF00);
-      }
       rect(1050, 515, 50, 50, 7);
       fill(0);
       text("R", 1067, 551);
@@ -113,6 +97,9 @@ public class Button {
       fill(200, 100);
     } else {
       fill(255, 100);
+    }
+    if (selected) {
+      fill(#F6FF00);
     }
   }
 
