@@ -11,24 +11,30 @@ public class Button {
   void display() {
     stroke(0);
     strokeWeight(2);
-    //1-9
-    int x1 = 810;
-    int y1 = 95;
-    for (int i = 1; i <= 9; i++) {
-      colorFill(x1, y1);
+    if (value > 0 && value < 10) {
+      //1-9
+      int y1 = 95 + 60 * (value - 1);
+      colorFill(810, y1);
+      if (selected) {
+        fill(#F6FF00);
+      }
       rect(810, y1, 50, 50, 7);
       textSize(30);
       fill(0);
-      text(i, 825, y1 + 35);
-      y1 += 60;
+      text(value, 825, y1 + 35);
+    }
 
-      //help
+    //help
+    if (value == 0) {
       colorFill(1050, 155);
+      if (selected) {
+        fill(#F6FF00);
+      }
       rect(1050, 155, 50, 50, 7);
       fill(0);
       text("?", 1070, 192);
       //instructions
-      if (value == 0 && selected) {
+      if (selected) {
         fill(255, 100);
         rect(89, 89, 542, 542);
         fill(0);
@@ -39,24 +45,38 @@ public class Button {
       }
     }
 
-      //erase
+    //erase
+    if (value == 10) {
       colorFill(1050, 275);
+      if (selected) {
+        fill(#F6FF00);
+      }
       rect(1050, 275, 50, 50, 7);
       fill(0);
       text("E", 1067, 312);
-      
-      //pencil
+    }
+
+    //pencil
+    if (value == 11) {
       colorFill(1050, 395);
+      if (selected) {
+        fill(#F6FF00);
+      }
       rect(1050, 395, 50, 50, 7);
       fill(0);
       text("P", 1067, 433);
-      
-      //restart
+    }
+
+    //restart
+    if (value == 12) {
       colorFill(1050, 515);
+      if (selected) {
+        fill(#F6FF00);
+      }
       rect(1050, 515, 50, 50, 7);
       fill(0);
       text("R", 1067, 551);
-    
+    }
   }
 
   void click() {
@@ -75,15 +95,13 @@ public class Button {
     //restart (12)
     if (value == 12 && mouseX >= 1050 && mouseX <= 1050+50 && mouseY >= 515 && mouseY <= 515+50) {
       selected = true;
-    } 
-    else {
+    } else {
       //1-9
       int x1 = 810; 
       int y1 = 95;
       for (int i = 1; i <= 9; i++) {
         if (value == i && mouseX >= x1 && mouseX <= x1+50 && mouseY >= y1 && mouseY <= y1+50) {
           selected = true;
-          
         }
         y1 += 60;
       }
@@ -92,10 +110,9 @@ public class Button {
 
   void colorFill(int x, int y) {
     if (mouseX >= x && mouseX <= x+50 && mouseY >= y && mouseY <= y+50) {
-      fill(200);
-    }
-    else {
-      fill(255);
+      fill(200, 100);
+    } else {
+      fill(255, 100);
     }
   }
 
