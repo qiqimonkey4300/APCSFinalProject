@@ -162,7 +162,7 @@ void mousePressed() {
         for (int i = 0; i < 9; i++) {
           for (Square s : grid[i]) {
             if (s.getState() == 0 && s.getValue() == 0) {
-              //s.setValue(0);
+              s.setValue(0);
               s.setState(3);
             }
           }
@@ -176,17 +176,20 @@ void mousePressed() {
           //new game
           if (button.getValue() == 11) {
             if (puzzles.size() > 0) {
-              create();
+              //create();
               for (int i = 0; i < 9; i++) {
                 for (Square s : grid[i]) {
-                  if (s.getState() == 0 && s.getValue() == 0) {
+                  /*if (s.getState() == 0 && s.getValue() == 0) {
                     //s.setValue(0);
                     s.setState(3);
                   }
-                }
-
+                }*/
+                  s.setValue(0);
+                  s.setState(3);
               }
-            } else {
+            } 
+            create();}
+            else {
               finish = true;
             }
             button.setSelected(false);
