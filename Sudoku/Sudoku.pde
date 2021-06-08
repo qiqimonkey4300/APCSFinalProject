@@ -227,7 +227,7 @@ void mousePressed() {
                     create();
                 }
 
-                if (button.getValue() > 0 && button.getValue() < 10) { //is a number button
+                if (button.getValue() > 0 && button.getValue() < 10 && s.getState() != 4) { //is a number button
                   s.setValue(button.getValue());
                   s.setState(1);
                 } else if (button.getValue() == 10 && s.getState() != 4) {
