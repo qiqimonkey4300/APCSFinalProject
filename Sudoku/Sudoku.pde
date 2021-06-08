@@ -125,19 +125,17 @@ void mousePressed() {
         if (button.isSelected()) {
 
           //new game
-          if (button.getValue() == 11) {
-            create();
+          /*if (button.getValue() == 11) {
+            //create();
             for (int i = 0; i < 9; i++) {
               for (Square s : grid[i]) {
-                if (s.getState() == 0 && s.getValue() == 0) {
-                  //s.setValue(0);
-                  s.setState(3);
-                }
+                s.setState(3);
               }
             }
-          }
+            create();
+          }*/
           
-          //resetting
+          //restart
           if (button.getValue() == 12) {
             for (int i = 0; i < 9; i++) {
               for (Square s : grid[i]) {
@@ -159,6 +157,17 @@ void mousePressed() {
                   for (Square b : a) {
                     if (b != s) s.setSelected(false);
                   }
+                }
+                  
+                //newgame
+                if (button.getValue() == 11) {
+                    //create();
+                    for (int j = 0; j < 9; j++) {
+                      for (Square s1 : grid[j]) {
+                        s1.setState(3);
+                      }
+                    }
+                    create();
                 }
 
                 if (button.getValue() > 0 && button.getValue() < 10) { //is a number button

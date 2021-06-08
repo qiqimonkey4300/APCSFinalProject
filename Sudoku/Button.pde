@@ -80,8 +80,9 @@ public class Button {
     //restart (12)
     if (value == 12 && mouseX >= 1050 && mouseX <= 1050+50 && mouseY >= 515 && mouseY <= 515+50) {
       selected = true;
-    } else {
-      //1-9
+    }
+    //1-9
+    else {
       int x1 = 810; 
       int y1 = 95;
       for (int i = 1; i <= 9; i++) {
