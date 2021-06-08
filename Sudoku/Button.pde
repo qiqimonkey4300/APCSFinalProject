@@ -46,12 +46,13 @@ public class Button {
       text("E", 1067, 312);
     }
 
-    //pencil
+    //new game
     if (value == 11) {
       colorFill(1050, 395);
       rect(1050, 395, 50, 50, 7);
       fill(0);
-      text("P", 1067, 433);
+      //text("R", 1067, 433);
+      text("N", 1065, 432);
     }
 
     //restart
@@ -72,7 +73,7 @@ public class Button {
     if (value == 10 && mouseX >= 1050 && mouseX <= 1050+50 && mouseY >= 275 && mouseY <= 275+50) {
       selected = true;
     } 
-    //pencil (11)
+    //new game (11)
     if (value == 11 && mouseX >= 1050 && mouseX <= 1050+50 && mouseY >= 395 && mouseY <= 395+50) {
       selected = true;
     } 
@@ -128,7 +129,7 @@ public class Button {
     + "\nThe same can be done to erase a square with the erase tool.\n"
 
     + "\nTools:"
-    + "\nE - Erase  |  P - Pencil  |  R - Restart\n"
+    + "\nE - Erase  |  N - New Game  |  R - Restart\n"
 
     + "\nColor Codes:"
     + "\nBlue - preset/standard numbers"

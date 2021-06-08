@@ -124,6 +124,19 @@ void mousePressed() {
         button.click();
         if (button.isSelected()) {
 
+          //new game
+          if (button.getValue() == 11) {
+            create();
+            for (int i = 0; i < 9; i++) {
+              for (Square s : grid[i]) {
+                if (s.getState() == 0 && s.getValue() == 0) {
+                  //s.setValue(0);
+                  s.setState(3);
+                }
+              }
+            }
+          }
+          
           //resetting
           if (button.getValue() == 12) {
             for (int i = 0; i < 9; i++) {
@@ -138,7 +151,7 @@ void mousePressed() {
 
           for (int i = 0; i < 9; i++) {
             for (Square s : grid[i]) {
-
+              
               s.click();
               if (s.isSelected() && s.getState() != 0) {
 
