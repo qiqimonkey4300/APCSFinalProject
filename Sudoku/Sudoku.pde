@@ -1,6 +1,7 @@
 Button[] tools;
 Square[][] grid;
 boolean title = true;
+boolean finish = false;
 ArrayList<Integer> puzzles = new ArrayList<Integer>();
 
 void setup() {
@@ -53,7 +54,7 @@ void draw() {
     text("Created by:"
       + "\nThe Last Two Brain Cells at 2 AM" 
       + "\nShyne Choi and Annabel Zhang", 640, 600);
-  } else {
+  } else if (!finish) {
     textAlign(LEFT);
     rectMode(CORNER);
 
@@ -80,36 +81,27 @@ void draw() {
     for (Button b : tools) {
       b.display();
     }
+  } else {
+    //finish screen
+    textAlign(CENTER);
+    fill(0);
+    textSize(90);
+    text("Migraine My Brain", 640, 250);
+
+    textSize(30);
+    fill(#E815DE);
+    text("Congratulations! You were able to complete all the puzzles."
+      + "\nYou've drained our reservoir."
+      + "\n"
+      + "\nThanks for playing!", 640, 370);
+
+    textSize(20);
+    fill(0);
+    text("Created by:"
+      + "\nThe Last Two Brain Cells at 2 AM" 
+      + "\nShyne Choi and Annabel Zhang", 640, 600);
   }
 }
-/*
-void mousePressed() {
- if (mouseButton == LEFT) {
- for (int i = 0; i < 9; i++) {
- for (Square s : grid[i]) {
- s.click();
- if (s.isSelected()) {
- for (Square[] a : grid) {
- for (Square b : a) {
- if (b != s) s.setSelected(false);
- }
- }
- }
- }
- }
- for (Button b : tools) {
- b.click();
- if (b.isSelected()) {
- //setValue(b.getValue());
- for (Button c : tools) {
- if (b != c){
- b.setSelected(false);
- }
- }
- }
- }
- }*/
-
 
 void mousePressed() {
   if (mouseButton == LEFT) {
@@ -125,17 +117,24 @@ void mousePressed() {
         if (button.isSelected()) {
 
           //new game
-          /*if (button.getValue() == 11) {
-            //create();
-            for (int i = 0; i < 9; i++) {
-              for (Square s : grid[i]) {
-                s.setState(3);
+          if (button.getValue() == 11) {
+            if (puzzles.size() > 0) {
+              create();
+              for (int i = 0; i < 9; i++) {
+                for (Square s : grid[i]) {
+                  if (s.getState() == 0 && s.getValue() == 0) {
+                    //s.setValue(0);
+                    s.setState(3);
+                  }
+                }
+
               }
+            } else {
+              finish = true;
             }
-            create();
-          }*/
-          
-          //restart
+          }
+
+          //resetting
           if (button.getValue() == 12) {
             for (int i = 0; i < 9; i++) {
               for (Square s : grid[i]) {
@@ -149,7 +148,6 @@ void mousePressed() {
 
           for (int i = 0; i < 9; i++) {
             for (Square s : grid[i]) {
-              
               s.click();
               if (s.isSelected() && s.getState() != 0) {
 
@@ -276,14 +274,16 @@ boolean check() {
 }
 
 void create() {  
-  int rand = (int)(Math.random() * puzzles.size());
-  int x = puzzles.remove(rand);
-  
-  for (int i = 0; i < 9; i++) {
-    for (int j = 0; j < 9; j++) {
-      grid[i][j].setValue(allPuzzles[x][i][j]);
-      if (grid[i][j].getValue() != 0) {
-        grid[i][j].setState(0);
+  if (puzzles.size() > 0) {
+    int rand = (int)(Math.random() * puzzles.size());
+    int x = puzzles.remove(rand);
+
+    for (int i = 0; i < 9; i++) {
+      for (int j = 0; j < 9; j++) {
+        grid[i][j].setValue(allPuzzles[x][i][j]);
+        if (grid[i][j].getValue() != 0) {
+          grid[i][j].setState(0);
+        }
       }
     }
   }
