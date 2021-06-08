@@ -63,11 +63,11 @@ void draw() {
 
     textSize(30);
     fill(#E815DE);
-    text("Congratulations! You were able to complete this sudoku.", 640, 345);
+    text("Congratulations! You were able to complete this sudoku!", 640, 345);
 
     rectMode(CENTER);
     fill(255);
-    rect(640, 460, 300, 100);
+    rect(640, 460, 350, 100);
 
     textSize(60);
     fill(#0326FF);
@@ -156,7 +156,7 @@ void mousePressed() {
         title = false;
       }
     } else if (puzzleFinish) {
-      if (mouseX < 790 && mouseX > 490 && mouseY < 510 && mouseY > 410) {
+      if (mouseX < 815 && mouseX > 465 && mouseY < 510 && mouseY > 410) {
         puzzleFinish = false;
         create();
         for (int i = 0; i < 9; i++) {
