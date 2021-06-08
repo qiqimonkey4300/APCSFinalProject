@@ -189,6 +189,7 @@ void mousePressed() {
             } else {
               finish = true;
             }
+            button.setSelected(false);
           }
 
           //resetting
@@ -201,6 +202,7 @@ void mousePressed() {
                 }
               }
             }
+            button.setSelected(false);
           }
 
           for (int i = 0; i < 9; i++) {
