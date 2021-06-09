@@ -8,6 +8,9 @@ A recreation of a familiar game: sudoku. The program will encompass a processing
 
 Doc Link: https://docs.google.com/document/d/1Q6Ud4WxZcsYQjgZEUR0ofl3CXGjaAfIF4SkNG4nrfZE/edit?usp=sharing
 
+# Compile/Run
+Just run on processing!
+
 # Log
 
 05/24/2021 CLASS ~  
