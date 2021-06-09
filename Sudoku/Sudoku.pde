@@ -105,7 +105,7 @@ void draw() {
     for (Button b : tools) {
       b.display();
     }
-    
+
     if (checkFinished()) {
       if (puzzles.size() > 0) {
         puzzleFinish = true;
@@ -122,10 +122,11 @@ void draw() {
 
     textSize(30);
     fill(#E815DE);
-    text("Congratulations! You were able to complete all the puzzles."
-      + "\nYou've drained our reservoir."
+    text("Now, now, now, we know you didn't" 
+      + "\njust sit down and do ten sudokus."
+      + "\nYou have drained our reservoir."
       + "\n"
-      + "\nThanks for playing!", 640, 370);
+      + "\nThanks for playing!", 640, 340);
 
     textSize(20);
     fill(0);
@@ -138,7 +139,7 @@ void draw() {
 boolean checkFinished() {
   for (Square[] a : grid) {
     for (Square b : a) {
-       if (b.getValue() == 0 || b.getState() == 2){
+      if (b.getValue() == 0 || b.getState() == 2) {
         return false;
       }
     }
@@ -180,16 +181,16 @@ void mousePressed() {
               for (int i = 0; i < 9; i++) {
                 for (Square s : grid[i]) {
                   /*if (s.getState() == 0 && s.getValue() == 0) {
-                    //s.setValue(0);
-                    s.setState(3);
-                  }
-                }*/
+                   //s.setValue(0);
+                   s.setState(3);
+                   }
+                   }*/
                   s.setValue(0);
                   s.setState(3);
-              }
-            } 
-            create();}
-            else {
+                }
+              } 
+              create();
+            } else {
               finish = true;
             }
             button.setSelected(false);
@@ -218,16 +219,16 @@ void mousePressed() {
                     if (b != s) s.setSelected(false);
                   }
                 }
-                  
+
                 //newgame
                 if (button.getValue() == 11) {
-                    //create();
-                    for (int j = 0; j < 9; j++) {
-                      for (Square s1 : grid[j]) {
-                        s1.setState(3);
-                      }
+                  //create();
+                  for (int j = 0; j < 9; j++) {
+                    for (Square s1 : grid[j]) {
+                      s1.setState(3);
                     }
-                    create();
+                  }
+                  create();
                 }
 
                 if (button.getValue() > 0 && button.getValue() < 10 && s.getState() != 4) { //is a number button
