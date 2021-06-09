@@ -46,4 +46,4 @@ Annabel: I updated the help screen and fixed help screen transparency bug.
 
 06/07/2021 - 06/08/2021 HOME  
 Shyne: I helped make the finish screens and fixed various bugs.  
-Annabel:
+Annabel: I created a new game button and fixed bugs concerning new boards.
